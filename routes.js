@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mysql = require("mysql");
+const qs = require("querystring");
 
 //Database Connection
 var db = mysql.createPool({
@@ -26,8 +27,8 @@ router.get("/", (req, res) => {
 });
 
 // When user access database Person
-router.get("/location-bylonglat", (req, res) => {
-  let data = req.body;
+router.get("/search-bylonglat", (req, res) => {
+  let data = req.query;
   let longitude = data.longitude;
   let latitude = data.latitude;
 
